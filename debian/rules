@@ -1,0 +1,37 @@
+#!/usr/bin/make -f
+
+configure:
+
+build:
+
+clean:
+	dh_testdir
+	dh_testroot
+	dh_clean 
+
+INSTALL_PATH=usr/share/perl5/Net
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k 
+	dh_install kawute.pm $(INSTALL_PATH)
+	sed -i -e 's/kawute/Net::kawute/g' debian/kawute/$(INSTALL_PATH)/*
+
+binary-indep: build install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs 
+	dh_installdocs
+	dh_compress
+	dh_fixperms
+	dh_perl
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary-arch: build install
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install configure
