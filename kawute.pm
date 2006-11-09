@@ -102,6 +102,11 @@ sub quit($;$)
   exit 1; 
 }
 
+sub cookie_domain($)
+{
+  return '!.invalid';
+}
+
 our $ua;
 sub lwp_init($)
 {

@@ -1,3 +1,9 @@
+kawute (0.8.1) unstable; urgency=low
+
+  * Provide a dummy cookie domain.
+
+ -- Jakub Wilk <ubanus@users.sf.net>  Thu,  9 Nov 2006 19:25:44 +0100
+
 kawute (0.8) unstable; urgency=low
 
   * Initial release.
