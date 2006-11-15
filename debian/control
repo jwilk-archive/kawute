@@ -7,6 +7,6 @@ Standards-Version: 3.7.2
 Bugs: mailto:ubanus@users.sf.net
 
 Package: kawute
-Architecture: any
+Architecture: all
 Depends: ${perl:Depends}, ${misc:Depends}, libwww-perl, libhtml-parser-perl, libapache-configfile-perl, libtext-unidecode-perl
 Description: Common codebase for sending SMa via Polish GSM operators gateways
