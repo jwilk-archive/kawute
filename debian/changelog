@@ -1,3 +1,9 @@
+kawute (0.8.3) unstable; urgency=low
+
+  * Configurable timeout.
+
+ -- Jakub Wilk <ubanus@users.sf.net>  Wed,  6 Dec 2006 23:29:51 +0100
+
 kawute (0.8.2) unstable; urgency=low
 
   * Architecture: any -> all.

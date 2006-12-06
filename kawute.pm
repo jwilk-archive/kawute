@@ -8,65 +8,73 @@ use Pod::Usage qw(pod2usage);
 
 sub software_name($) { 'kawute'; }
 
-my $__debug = 0;
+our $timeout = 30;
+sub timeout($;$)
+{
+  my ($this, $timeout) = @_;
+  return $kawute::timeout unless defined $timeout;
+  $kawute::timeout = $timeout;
+}
+
+our $debug = 0;
 sub debug($;$)
 {
   my ($this, $value) = @_;
-  return $__debug unless defined $value;
-  $__debug = $value;
+  return $kawute::debug unless defined $value;
+  $kawute::debug = $value;
 }
 
-my $__use_bell = 0;
+our $use_bell = 0;
 sub use_bell($;$)
 {
   my ($this, $value) = @_;
-  return $__use_bell unless defined $value;
-  $__use_bell = $value;
+  return $kawute::use_bell unless defined $value;
+  $kawute::use_bell = $value;
 }
 
-my $__person2number;
+our $person2number;
 sub person2number($;$)
 {
   my ($this, $value) = @_;
-  return $__person2number unless defined $value;
-  $__person2number = $value;
+  return $kawute::person2number unless defined $value;
+  $kawute::person2number = $value;
 }
 
-my $__number2person;
+our $number2person;
 sub number2person($;$)
 {
   my ($this, $value) = @_;
-  return $__number2person unless defined $value;
-  $__number2person = $value;
+  return $kawute::number2person unless defined $value;
+  $kawute::number2person = $value;
 }
 
-my $__reject_unpersons = 0;
+our $reject_unpersons = 0;
 sub reject_unpersons($;$)
 {
   my ($this, $value) = @_;
-  return $__reject_unpersons unless defined $value;
-  $__reject_unpersons = $value;
+  return $kawute::reject_unpersons unless defined $value;
+  $kawute::reject_unpersons = $value;
 }
 
-my $__account = my $__account0 = 'default';
+our $account = our $account0 = 'default';
 sub account($;$)
 {
   my ($this, $value) = @_;
-  return $__account unless defined $value;
-  $__account = $value;
+  return $kawute::account unless defined $value;
+  $kawute::account = $value;
 }
 
 sub default_account($)
 {
-  return $__account0;
+  return $kawute::account0;
 }
 
-my $__force = 0;
+our $force = 0;
 sub force($;$)
 {
   my ($this, $value) = @_;
-  return $__force unless defined $value;
-  $__force = $value;
+  return $kawute::force unless defined $value;
+  $kawute::force = $value;
 }
 
 sub error($$$)
@@ -114,7 +122,7 @@ sub lwp_init($)
   require HTTP::Cookies;
   my ($this) = @_;
   my $ua = new LWP::UserAgent();
-  $ua->timeout(30);
+  $ua->timeout($this->timeout());
   $ua->agent('Mozilla/5.0');
   $ua->env_proxy();
   $ua->cookie_jar(new HTTP::Cookies(file => './cookie-jar.txt', autosave => 1, ignore_discard => 1));
@@ -240,7 +248,9 @@ sub read_config($%)
     'debug' => sub 
       { $this->debug(shift); },
     'usebell' => sub 
-      { $this->use_bell(shift); }
+      { $this->use_bell(shift); },
+    'timeout' => sub
+      { $this->timeout(shift); }
   );
   foreach (keys %default_conf_vars)
   {
