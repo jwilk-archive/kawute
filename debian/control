@@ -9,4 +9,5 @@ Bugs: mailto:ubanus@users.sf.net
 Package: kawute
 Architecture: all
 Depends: ${perl:Depends}, ${misc:Depends}, libwww-perl, libhtml-parser-perl, libapache-configfile-perl, libtext-unidecode-perl
+Suggests: eraomnix, orange-pl, sms-orange-pl, siemensms.
 Description: Common codebase for sending SMs via Polish GSM operators gateways
