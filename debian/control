@@ -3,7 +3,7 @@ Section: net
 Priority: extra
 Maintainer: Jakub Wilk <ubanus@users.sf.net>
 Build-Depends: debhelper (>= 7)
-Standards-Version: 3.8.0
+Standards-Version: 3.8.1
 Bugs: mailto:ubanus@users.sf.net
 
 Package: kawute
@@ -12,7 +12,7 @@ Depends: ${perl:Depends}, ${misc:Depends}, libwww-perl, libhtml-parser-perl, lib
 Suggests: eraomnix, orange-pl, sms-orange-pl, siemensms.
 Description: Common codebase for sending SMs via Polish GSM operators gateways
  kawute is a library supporting the following tools, which allows to send SMs:
- - eraomnix,
- - orange-pl,
- - sms-orange-pl
- - siemensms.
+  - eraomnix,
+  - orange-pl,
+  - sms-orange-pl
+  - siemensms.

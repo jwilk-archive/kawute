@@ -2,11 +2,9 @@
 
 INSTALL_PATH=usr/share/perl5/Net
 
-configure:
-	:
+configure: ;
 
-build:
-	:
+build: ;
 
 clean:
 	dh $(@)
@@ -20,11 +18,9 @@ install: build
 binary-indep: install
 	dh $(@)
 
-binary-arch: install
-	:
+binary-arch: install ;
 
-binary: binary-indep binary-arch
-	:
+binary: binary-indep binary-arch ;
 
 .PHONY: build clean binary-indep binary-arch binary install configure
 
