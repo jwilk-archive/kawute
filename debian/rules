@@ -2,26 +2,28 @@
 
 INSTALL_PATH=usr/share/perl5/Net
 
-configure: ;
-
+.PHONY: build
 build: ;
 
+.PHONY: clean
 clean:
 	dh $(@)
 
+.PHONY: install
 install: build
 	dh $(@) --until dh_prep
 	dh_install kawute.pm $(INSTALL_PATH)
 	sed -i -e 's/kawute/Net::kawute/g' debian/kawute/$(INSTALL_PATH)/*
 	dh $(@) --remaining
 
+.PHONY: binary-indep
 binary-indep: install
 	dh $(@)
 
+.PHONY: binary-arch
 binary-arch: install ;
 
+.PHONY: binary
 binary: binary-indep binary-arch ;
-
-.PHONY: build clean binary-indep binary-arch binary install configure
 
 # vim:ts=4 sw=4 noet
