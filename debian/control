@@ -1,10 +1,10 @@
 Source: kawute
 Section: net
 Priority: extra
-Maintainer: Jakub Wilk <ubanus@users.sf.net>
+Maintainer: Jakub Wilk <jwilk@jwilk.net>
 Build-Depends: debhelper (>= 7)
 Standards-Version: 3.8.1
-Bugs: mailto:ubanus@users.sf.net
+Bugs: mailto:jwilk@jwilk.net
 
 Package: kawute
 Architecture: all
