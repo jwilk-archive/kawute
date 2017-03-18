@@ -11,7 +11,7 @@ Architecture: all
 Depends: ${perl:Depends}, ${misc:Depends}, libwww-perl, libhtml-parser-perl, libapache-configfile-perl, libtext-unidecode-perl
 Suggests: eraomnix, orange-pl, sms-orange-pl, siemensms.
 Description: Common codebase for sending SMs via Polish GSM operators gateways
- kawute is a library supporting the following tools, which allows to send SMs:
+ kawute is a library supporting the following tools, which allows sending SMs:
   - eraomnix,
   - orange-pl,
   - sms-orange-pl
