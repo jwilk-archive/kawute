@@ -87,7 +87,7 @@ sub error($$$)
 sub api_error($$)
 {
   my ($this, $message) = @_;
-  $this->error('API error', "code: $message"); 
+  $this->error('API error', "code: $message");
 }
 
 sub http_error($$)
@@ -107,7 +107,7 @@ sub quit($;$)
   my ($this, $message) = @_;
   print STDERR "\a" if $this->use_bell();
   print STDERR "$message\n" if defined $message;
-  exit 1; 
+  exit 1;
 }
 
 sub cookie_domain($)
@@ -239,15 +239,15 @@ sub read_config($%)
   my ($this, %conf_vars) = @_;
   my %default_conf_vars =
   (
-    'number2person' => sub 
+    'number2person' => sub
       { $this->number2person($this->expand_tilde(shift)); },
-    'person2number' => sub 
+    'person2number' => sub
       { $this->person2number($this->expand_tilde(shift)); },
-    'rejectunpersons' => sub 
+    'rejectunpersons' => sub
       { $this->reject_unpersons(shift); },
-    'debug' => sub 
+    'debug' => sub
       { $this->debug(shift); },
-    'usebell' => sub 
+    'usebell' => sub
       { $this->use_bell(shift); },
     'timeout' => sub
       { $this->timeout(shift); }
@@ -277,18 +277,18 @@ sub get_options($@)
   my ($this, %options) = @_;
   my %default_options =
   (
-    'force' => sub 
+    'force' => sub
       { $this->force(1); },
-    'version' => sub 
+    'version' => sub
       { $this->quit($this->software_name() . "version " . $this->version()); },
-    'debug' => sub 
+    'debug' => sub
       { $this->debug(1); },
-    'help|h|?' =>  sub 
+    'help|h|?' =>  sub
       { pod2usage(1); },
-    'account=s' => sub 
-      { 
+    'account=s' => sub
+      {
         ($_, my $account) = @_;
-        $this->account($account); 
+        $this->account($account);
       }
   );
   foreach (keys %default_options)
